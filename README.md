@@ -1,2 +1,2 @@
-# ingredients
-Data for food ingrediënts storage app
+# Fooddata Ontology
+Initial version
