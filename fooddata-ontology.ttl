@@ -13,7 +13,6 @@
 @prefix bbcfo: <https://www.bbc.co.uk/ontologies/fo/> .
 @prefix dcmit: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix dctypes: <http://purl.org/dc/dcmitype/> .
 @base <http://fooddata.eu/ontology/> .
 
 <http://fooddata.eu/ontology/> rdf:type owl:Ontology ;
@@ -311,7 +310,7 @@ fdo:serves rdf:type owl:DatatypeProperty ;
 
 ###  http://fooddata.eu/ontology/Collection
 fdo:Collection rdf:type owl:Class ;
-               rdfs:subClassOf dctypes:Collection ;
+               rdfs:subClassOf dcmit:Collection ;
                rdfs:comment "A Collection is a group of recipes that are brought together because they have something in common. Some collections may result from automated queries such as all recipes that share a particular ingredient, other collections may be the result of editorial selection."@en ,
                             "Een collectie is een groep recepten die bij elkaar zijn gebracht omdat ze iets gemeen hebben. Sommige verzamelingen kunnen het resultaat zijn van geautomatiseerde zoekopdrachten, zoals alle recepten die een bepaald ingrediënt delen, andere verzamelingen kunnen het resultaat zijn van redactionele selectie."@nl ;
                rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
@@ -498,7 +497,7 @@ fdo:Technique rdf:type owl:Class ;
 
 
 ###  http://purl.org/dc/dcmitype/Collection
-dctypes:Collection rdf:type owl:Class .
+dcmit:Collection rdf:type owl:Class .
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq
