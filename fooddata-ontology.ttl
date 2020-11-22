@@ -351,6 +351,8 @@ fdo:Food rdf:type owl:Class ;
          rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
          rdfs:label "Food"@en ,
                     "Voedingsmiddel"@nl ;
+         vst:term_status "testing" ;
+         skos:exactMatch bbcfo:Food ;
          vst:term_status "testing" .
 
 
@@ -361,7 +363,8 @@ fdo:Ingredient rdf:type owl:Class ;
                rdfs:label "Ingredient"@en ,
                           "Ingrediënt"@nl ;
                skos:closeMatch vso:recipeIngredient ;
-               skos:exactMatch bbcfo:Ingredient .
+               skos:exactMatch bbcfo:Ingredient ;
+               vst:term_status "testing" .
 
 
 ###  http://fooddata.eu/ontology/IngredientList
