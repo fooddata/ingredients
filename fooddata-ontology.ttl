@@ -316,7 +316,9 @@ fdo:Collection rdf:type owl:Class ;
                rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
                rdfs:label "Collectie"@nl ,
                           "Collection"@en ;
-               vst:term_status "testing"@en .
+               vst:term_status "testing"@en ;
+               skos:closeMatch vso:Collection ;
+               skos:exactMatch bbcfo:Collection .
 
 
 ###  http://fooddata.eu/ontology/Course
@@ -337,10 +339,14 @@ fdo:Cuisine rdf:type owl:Class ;
 
 ###  http://fooddata.eu/ontology/Diet
 fdo:Diet rdf:type owl:Class ;
-         rdfs:comment "A Diet is a way of selecting food that achieves a particular effect, such as eating in way that is pregnancy-friendly or avoiding foods that contain shellfish."@en ;
+         rdfs:subClassOf vso:RestrictedDiet ;
+         rdfs:comment "A Diet is a way of selecting food that achieves a particular effect, such as eating in way that is pregnancy-friendly or avoiding foods that contain shellfish."@en ,
+                      "Een dieet is een manier om voedsel te selecteren dat een bepaald effect bereikt, zoals eten op een manier die zwangerschapsvriendelijk is of het vermijden van voedsel dat schaaldieren bevat."@nl ;
          rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-         rdfs:label "Diet"@en ;
-         vst:term_status "testing" .
+         rdfs:label "Dieet"@nl ,
+                    "Diet"@en ;
+         vst:term_status "testing" ;
+         skos:exactMatch bbcfo:Diet .
 
 
 ###  http://fooddata.eu/ontology/Food
@@ -351,8 +357,7 @@ fdo:Food rdf:type owl:Class ;
          rdfs:label "Food"@en ,
                     "Voedingsmiddel"@nl ;
          vst:term_status "testing" ;
-         skos:exactMatch bbcfo:Food ;
-         vst:term_status "testing" .
+         skos:exactMatch bbcfo:Food .
 
 
 ###  http://fooddata.eu/ontology/Ingredient
@@ -361,9 +366,9 @@ fdo:Ingredient rdf:type owl:Class ;
                             "Een ingrediënt is de combinatie van een hoeveelheid en een voedingsmiddel, waarmee de hoeveelheid wordt aangegeven van iets dat in het recept moet worden gebruikt."@nl ;
                rdfs:label "Ingredient"@en ,
                           "Ingrediënt"@nl ;
+               vst:term_status "testing" ;
                skos:closeMatch vso:recipeIngredient ;
-               skos:exactMatch bbcfo:Ingredient ;
-               vst:term_status "testing" .
+               skos:exactMatch bbcfo:Ingredient .
 
 
 ###  http://fooddata.eu/ontology/IngredientList
@@ -497,11 +502,83 @@ fdo:Technique rdf:type owl:Class ;
 
 
 ###  http://purl.org/dc/dcmitype/Collection
-dcmit:Collection rdf:type owl:Class .
+dcmit:Collection rdf:type owl:Class ;
+                 rdfs:label "dcmi:Collection"@en .
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq
 rdf:Seq rdf:type owl:Class .
+
+
+###  https://schema.org/RestrictedDiet
+vso:RestrictedDiet rdf:type owl:Class ;
+                   rdfs:comment "A diet restricted to certain foods or preparations for cultural, religious, health or lifestyle reasons."@en ,
+                                "Een dieet dat om culturele, religieuze, gezondheids- of levensstijlredenen beperkt is tot bepaalde voedingsmiddelen of preparaten."@nl ;
+                   rdfs:label "BeperktDieet"@nl ,
+                              "RestrictedDiet"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://schema.org/DiabeticDiet
+vso:DiabeticDiet rdf:type owl:NamedIndividual ,
+                          vso:RestrictedDiet ;
+                 rdfs:comment "A diet appropriate for people with diabetes."@en ,
+                              "Een dieet dat geschikt is voor mensen met diabetes."@nl ;
+                 rdfs:label "DiabeticDiet"@en ,
+                            "DiabetischDieet"@nl .
+
+
+###  https://schema.org/GlutenFreeDiet
+vso:GlutenFreeDiet rdf:type owl:NamedIndividual ,
+                            vso:RestrictedDiet .
+
+
+###  https://schema.org/HalalDiet
+vso:HalalDiet rdf:type owl:NamedIndividual ,
+                       vso:RestrictedDiet .
+
+
+###  https://schema.org/HinduDiet
+vso:HinduDiet rdf:type owl:NamedIndividual ,
+                       vso:RestrictedDiet .
+
+
+###  https://schema.org/KosherDiet
+vso:KosherDiet rdf:type owl:NamedIndividual ,
+                        vso:RestrictedDiet .
+
+
+###  https://schema.org/LowCalorieDiet
+vso:LowCalorieDiet rdf:type owl:NamedIndividual ,
+                            vso:RestrictedDiet .
+
+
+###  https://schema.org/LowFatDiet
+vso:LowFatDiet rdf:type owl:NamedIndividual ,
+                        vso:RestrictedDiet .
+
+
+###  https://schema.org/LowLactoseDiet
+vso:LowLactoseDiet rdf:type owl:NamedIndividual ,
+                            vso:RestrictedDiet .
+
+
+###  https://schema.org/LowSaltDiet
+vso:LowSaltDiet rdf:type owl:NamedIndividual ,
+                         vso:RestrictedDiet .
+
+
+###  https://schema.org/VeganDiet
+vso:VeganDiet rdf:type owl:NamedIndividual ,
+                       vso:RestrictedDiet .
+
+
+###  https://schema.org/VegetarianDiet
+vso:VegetarianDiet rdf:type owl:NamedIndividual ,
+                            vso:RestrictedDiet .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
