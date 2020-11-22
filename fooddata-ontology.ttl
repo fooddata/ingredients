@@ -1,6 +1,5 @@
 @prefix : <http://fooddata.eu/ontology/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix bbcfo: <https://www.bbc.co.uk/ontologies/fo/> .
 @prefix fdo: <http://fooddata.eu/ontology/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -11,6 +10,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix bbcfo: <https://www.bbc.co.uk/ontologies/fo/> .
 @prefix dcmit: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dctypes: <http://purl.org/dc/dcmitype/> .
@@ -312,10 +312,12 @@ fdo:serves rdf:type owl:DatatypeProperty ;
 ###  http://fooddata.eu/ontology/Collection
 fdo:Collection rdf:type owl:Class ;
                rdfs:subClassOf dctypes:Collection ;
-               rdfs:comment "A Collection is a group of recipes that are brought together because they have something in common. Some collections may result from automated queries such as all recipes that share a particular ingredient, other collections may be the result of editorial selection."@en ;
+               rdfs:comment "A Collection is a group of recipes that are brought together because they have something in common. Some collections may result from automated queries such as all recipes that share a particular ingredient, other collections may be the result of editorial selection."@en ,
+                            "Een collectie is een groep recepten die bij elkaar zijn gebracht omdat ze iets gemeen hebben. Sommige verzamelingen kunnen het resultaat zijn van geautomatiseerde zoekopdrachten, zoals alle recepten die een bepaald ingrediënt delen, andere verzamelingen kunnen het resultaat zijn van redactionele selectie."@nl ;
                rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-               rdfs:label "Collection"@en ;
-               vst:term_status "testing" .
+               rdfs:label "Collectie"@nl ,
+                          "Collection"@en ;
+               vst:term_status "testing"@en .
 
 
 ###  http://fooddata.eu/ontology/Course
@@ -344,23 +346,34 @@ fdo:Diet rdf:type owl:Class ;
 
 ###  http://fooddata.eu/ontology/Food
 fdo:Food rdf:type owl:Class ;
-         rdfs:comment "A Food is something that can be eaten. It may be a basic food such as salt or it may be the more complex result of another recipe, for example chicken stock. A recipe uses foods as part of ingredients and also produces foods to be eaten."@en ;
+         rdfs:comment "A Food is something that can be eaten. It may be a basic food such as salt or it may be the more complex result of another recipe, for example chicken stock. A recipe uses foods as part of ingredients and also produces foods to be eaten."@en ,
+                      "Een voedingsmiddel is iets dat kan worden gegeten. Het kan een basisvoedsel zijn, zoals zout, of het kan het complexere resultaat zijn van een ander recept, bijvoorbeeld kippenbouillon. Een recept gebruikt voedsel als onderdeel van ingrediënten en produceert ook voedsel om te eten."@nl ;
          rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-         rdfs:label "Food"@en ;
+         rdfs:label "Food"@en ,
+                    "Voedingsmiddel"@nl ;
          vst:term_status "testing" .
 
 
 ###  http://fooddata.eu/ontology/Ingredient
-fdo:Ingredient rdf:type owl:Class .
+fdo:Ingredient rdf:type owl:Class ;
+               rdfs:comment "An Ingredient is the combination of a quantity and a food, giving the amount of something that should be used in the recipe."@en ,
+                            "Een ingrediënt is de combinatie van een hoeveelheid en een voedingsmiddel, waarmee de hoeveelheid wordt aangegeven van iets dat in het recept moet worden gebruikt."@nl ;
+               rdfs:label "Ingredient"@en ,
+                          "Ingrediënt"@nl ;
+               skos:closeMatch vso:recipeIngredient ;
+               skos:exactMatch bbcfo:Ingredient .
 
 
 ###  http://fooddata.eu/ontology/IngredientList
 fdo:IngredientList rdf:type owl:Class ;
                    rdfs:subClassOf rdf:Seq ;
-                   rdfs:comment "An IngredientList is a sequence (rdf:Seq) of ingredients in the order they should be listed in the recipe."@en ;
+                   rdfs:comment "An Ingredient List is a sequence (rdf:Seq) of ingredients in the order they should be listed in the recipe."@en ,
+                                "Een ingrediëntenlijst is een reeks (rdf: Seq) ingrediënten in de volgorde waarin ze in het recept moeten worden vermeld."@nl ;
                    rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-                   rdfs:label "IngredientList"@en ;
-                   vst:term_status "testing" .
+                   rdfs:label "IngredientList"@en ,
+                              "Ingrediëntenlijst"@nl ;
+                   vst:term_status "testing" ;
+                   skos:exactMatch bbcfo:IngredientList .
 
 
 ###  http://fooddata.eu/ontology/Menu
@@ -375,18 +388,25 @@ fdo:Menu rdf:type owl:Class ;
 ###  http://fooddata.eu/ontology/Method
 fdo:Method rdf:type owl:Class ;
            rdfs:subClassOf rdf:Seq ;
-           rdfs:comment "A Method is the way in which ingredients are combined, using particular techniques, in order to produce a food. A method is part of a recipe and is also an rdf:Seq."@en ;
+           rdfs:comment "A Method is the way in which ingredients are combined, using particular techniques, in order to produce a food. A method is part of a recipe and is also an rdf:Seq."@en ,
+                        "Een methode is de manier waarop ingrediënten worden gecombineerd, met behulp van bepaalde technieken, om een voedsel te produceren. Een methode maakt deel uit van een recept en is ook een rdf: Seq."@nl ;
            rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-           rdfs:label "Method"@en ;
-           vst:term_status "testing" .
+           rdfs:label "Method"@en ,
+                      "Methode"@nl ;
+           vst:term_status "testing" ;
+           skos:closeMatch vso:cookingMethod ;
+           skos:exactMatch bbcfo:Method .
 
 
 ###  http://fooddata.eu/ontology/Occasion
 fdo:Occasion rdf:type owl:Class ;
-             rdfs:comment "An Occasion is a recognised event or type of event that a particular food may be suitable for. An exmaple of a particular occassion might be Chinese New Year, whereas a more general occassion might a birthday."@en ;
+             rdfs:comment "An Occasion is a recognised event or type of event that a particular food may be suitable for. An example of a particular occassion might be Chinese New Year, whereas a more general occassion might a birthday."@en ,
+                          "Een gelegenheid is een erkende gebeurtenis of een soort evenement waarvoor een bepaald voedsel geschikt kan zijn. Een voorbeeld van een bepaalde gelegenheid kan Chinees Nieuwjaar zijn, terwijl een meer algemene gelegenheid een verjaardag kan zijn."@nl ;
              rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-             rdfs:label "Occasion"@en ;
-             vst:term_status "testing" .
+             rdfs:label "Gelegenheid"@nl ,
+                        "Occasion"@en ;
+             vst:term_status "testing" ;
+             skos:exactMatch bbcfo:Occasion .
 
 
 ###  http://fooddata.eu/ontology/Recipe
@@ -396,8 +416,23 @@ fdo:Recipe rdf:type owl:Class ;
            rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
            rdfs:label "Recept"@nl ,
                       "Recipe"@en ;
+           vst:term_status "testing"@en ;
            skos:closeMatch vso:Recipe ;
            skos:exactMatch bbcfo:Recipe .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource fdo:Recipe ;
+   owl:annotatedProperty skos:closeMatch ;
+   owl:annotatedTarget vso:Recipe ;
+   rdfs:comment "Gebruikt overeenkomstige begrippen uit schema maar komt niet volledig overeen met naamgeving en indeling."@nl
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource fdo:Recipe ;
+   owl:annotatedProperty skos:exactMatch ;
+   owl:annotatedTarget bbcfo:Recipe ;
+   rdfs:comment "Overgenomen om later uit te breiden"@nl
+ ] .
 
 
 ###  http://fooddata.eu/ontology/Season
@@ -418,27 +453,37 @@ fdo:ShoppingCategory rdf:type owl:Class ;
 
 ###  http://fooddata.eu/ontology/Stage
 fdo:Stage rdf:type owl:Class ;
-          rdfs:comment "A Stage is a part of a recipe that may have its own ingredient list and/or method. It allows the different parts of a multi-part recipe to be modelled seperately, yet as part of the same recipe."@en ;
+          rdfs:comment "A Stage is a part of a recipe that may have its own ingredient list and/or method. It allows the different parts of a multi-part recipe to be modelled seperately, yet as part of the same recipe."@en ,
+                       "Een fase is een onderdeel van een recept dat zijn eigen ingrediëntenlijst en / of methode kan hebben. Hiermee kunnen de verschillende delen van een meerdelig recept afzonderlijk worden gemodelleerd, maar als onderdeel van hetzelfde recept."@nl ;
           rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-          rdfs:label "Stage"@en ;
-          vst:term_status "testing" .
+          rdfs:label "Fase"@nl ,
+                     "Stage"@en ;
+          vst:term_status "testing" ;
+          skos:exactMatch bbcfo:Stage .
 
 
 ###  http://fooddata.eu/ontology/StageSequence
 fdo:StageSequence rdf:type owl:Class ;
                   rdfs:subClassOf rdf:Seq ;
-                  rdfs:comment "Where a recipe has a number of stage, for example where a recipe states 'for the sauce' a stage sequence provides a way to sequence the stages (rdf:Seq) into the desired order."@en ;
+                  rdfs:comment "Waar een recept een aantal fasen heeft, bijvoorbeeld waar een recept 'voor de saus' vermeldt, biedt een fasenvolgorde een manier om de fasen (rdf: Seq) in de gewenste volgorde te zetten."@nl ,
+                               "Where a recipe has a number of stage, for example where a recipe states 'for the sauce' a stage sequence provides a way to sequence the stages (rdf:Seq) into the desired order."@en ;
                   rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-                  rdfs:label "StageSequence"@en ;
-                  vst:term_status "testing" .
+                  rdfs:label "Fasenvolgorde"@nl ,
+                             "StageSequence"@en ;
+                  vst:term_status "testing" ;
+                  skos:exactMatch bbcfo:StageSequence .
 
 
 ###  http://fooddata.eu/ontology/Step
 fdo:Step rdf:type owl:Class ;
-         rdfs:comment "A Step is the lowest level of instruction used in a recipe. A sequence of steps form a method."@en ;
+         rdfs:comment "A Step is the lowest level of instruction used in a recipe. A sequence of steps form a method."@en ,
+                      "Een stap is het laagste instructieniveau dat in een recept wordt gebruikt. Een opeenvolging van stappen vormt een methode."@nl ;
          rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-         rdfs:label "Step"@en ;
-         vst:term_status "testing" .
+         rdfs:label "Stap"@nl ,
+                    "Step"@en ;
+         vst:term_status "testing" ;
+         skos:closeMatch vso:recipeInstructions ;
+         skos:exactMatch bbcfo:Step .
 
 
 ###  http://fooddata.eu/ontology/Technique
