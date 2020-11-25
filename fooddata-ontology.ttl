@@ -13,32 +13,32 @@
 @prefix bbcfo: <https://www.bbc.co.uk/ontologies/fo/> .
 @prefix dcmit: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://fooddata.eu/ontology/> .
+@base <http://purl.org/fooddata/> .
 
-<http://fooddata.eu/ontology/> rdf:type owl:Ontology ;
-                                owl:versionIRI <http://fooddata.eu/ontology/0.1> ;
-                                rdfs:seeAlso "BBC Food ontology. All Classes and Properties are initial copied and changed over time." ;
-                                owl:versionInfo "First version dervived from BBC Food ontology" ;
-                                vst:term_status "Initial" .
+<http://purl.org/fooddata/> rdf:type owl:Ontology ;
+                             owl:versionIRI <http://purl.org/fooddata/0.1> ;
+                             rdfs:seeAlso "BBC Food ontology. All Classes and Properties are initial copied and changed over time." ;
+                             owl:versionInfo "First version dervived from BBC Food ontology" ;
+                             vst:term_status "Initial" .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
-###  http://fooddata.eu/ontology/definitionSource
-fdo:definitionSource rdf:type owl:AnnotationProperty .
-
-
-###  http://fooddata.eu/ontology/editorNote
-fdo:editorNote rdf:type owl:AnnotationProperty .
-
-
-###  http://fooddata.eu/ontology/editorialDefinition
-fdo:editorialDefinition rdf:type owl:AnnotationProperty .
-
-
 ###  http://purl.org/dc/elements/1.1/creator
 dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/fooddata/definitionSource
+:definitionSource rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/fooddata/editorNote
+:editorNote rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/fooddata/editorialDefinition
+:editorialDefinition rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2002/07/owl#sameAs
@@ -77,433 +77,433 @@ skos:narrowMatch rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
-###  http://fooddata.eu/ontology/at_its_best
-fdo:at_its_best rdf:type owl:ObjectProperty ;
-                rdfs:domain fdo:Food ;
-                rdfs:range fdo:Season ;
-                rdfs:comment "The at its best property tells us in what season a particular food is at its best."@en ;
-                rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-                rdfs:label "at its best"@en ;
-                vst:term_status "testing" .
+###  http://purl.org/fooddata/at_its_best
+:at_its_best rdf:type owl:ObjectProperty ;
+             rdfs:domain :Food ;
+             rdfs:range :Season ;
+             rdfs:comment "The at its best property tells us in what season a particular food is at its best."@en ;
+             rdfs:isDefinedBy fdo: ;
+             rdfs:label "at its best"@en ;
+             vst:term_status "testing" .
 
 
-###  http://fooddata.eu/ontology/canape
-fdo:canape rdf:type owl:ObjectProperty ;
-           rdfs:domain fdo:Menu ;
-           rdfs:range fdo:Recipe ;
-           rdfs:comment "The canape property relates a menu to a recipe that may be served as a canape."@en ;
-           rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-           rdfs:label "canape"@en ;
-           vst:term_status "testing" .
+###  http://purl.org/fooddata/canape
+:canape rdf:type owl:ObjectProperty ;
+        rdfs:domain :Menu ;
+        rdfs:range :Recipe ;
+        rdfs:comment "The canape property relates a menu to a recipe that may be served as a canape."@en ;
+        rdfs:isDefinedBy fdo: ;
+        rdfs:label "canape"@en ;
+        vst:term_status "testing" .
 
 
-###  http://fooddata.eu/ontology/cuisine
-fdo:cuisine rdf:type owl:ObjectProperty ;
-            rdfs:domain fdo:Recipe ;
-            rdfs:range fdo:Cuisine ;
-            rdfs:comment "The cuisine property classifies a recipe as being an example of that cuisine."@en ;
-            rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-            rdfs:label "cuisine"@en ;
-            vst:term_status "testing" .
-
-
-###  http://fooddata.eu/ontology/dessert
-fdo:dessert rdf:type owl:ObjectProperty ;
-            rdfs:domain fdo:Menu ;
-            rdfs:range fdo:Recipe ;
-            rdfs:comment "The dessert property relates a menu to a recipe that may be served as a dessert."@en ;
-            rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-            rdfs:label "dessert"@en ;
-            vst:term_status "testing" .
-
-
-###  http://fooddata.eu/ontology/diet
-fdo:diet rdf:type owl:ObjectProperty ;
-         rdfs:domain fdo:Recipe ;
-         rdfs:range fdo:Diet ;
-         rdfs:comment "The diet property relates a recipe to a diet it may be suitable for."@en ;
-         rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-         rdfs:label "diet"@en ;
+###  http://purl.org/fooddata/cuisine
+:cuisine rdf:type owl:ObjectProperty ;
+         rdfs:domain :Recipe ;
+         rdfs:range :Cuisine ;
+         rdfs:comment "The cuisine property classifies a recipe as being an example of that cuisine."@en ;
+         rdfs:isDefinedBy fdo: ;
+         rdfs:label "cuisine"@en ;
          vst:term_status "testing" .
 
 
-###  http://fooddata.eu/ontology/food
-fdo:food rdf:type owl:ObjectProperty ;
-         rdfs:domain fdo:Ingredient ;
-         rdfs:range fdo:Food ;
-         rdfs:comment "The food property relates an ingredient to the food that is required."@en ;
-         rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-         rdfs:label "food"@en ;
+###  http://purl.org/fooddata/dessert
+:dessert rdf:type owl:ObjectProperty ;
+         rdfs:domain :Menu ;
+         rdfs:range :Recipe ;
+         rdfs:comment "The dessert property relates a menu to a recipe that may be served as a dessert."@en ;
+         rdfs:isDefinedBy fdo: ;
+         rdfs:label "dessert"@en ;
          vst:term_status "testing" .
 
 
-###  http://fooddata.eu/ontology/ingredients
-fdo:ingredients rdf:type owl:ObjectProperty ;
-                rdfs:range fdo:IngredientList ;
-                rdfs:comment "The ingredients property relates a recipe or recipe stage to an ingredient list."@en ;
-                rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-                rdfs:label "ingredients"@en ;
-                vst:term_status "testing" .
+###  http://purl.org/fooddata/diet
+:diet rdf:type owl:ObjectProperty ;
+      rdfs:domain :Recipe ;
+      rdfs:range :Diet ;
+      rdfs:comment "The diet property relates a recipe to a diet it may be suitable for."@en ;
+      rdfs:isDefinedBy fdo: ;
+      rdfs:label "diet"@en ;
+      vst:term_status "testing" .
 
 
-###  http://fooddata.eu/ontology/main_course
-fdo:main_course rdf:type owl:ObjectProperty ;
-                rdfs:domain fdo:Menu ;
-                rdfs:range fdo:Recipe ;
-                rdfs:comment "The main course property relates a menu to a recipe that may be served as a main course."@en ;
-                rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-                rdfs:label "main course"@en ;
-                vst:term_status "testing" .
+###  http://purl.org/fooddata/food
+:food rdf:type owl:ObjectProperty ;
+      rdfs:domain :Ingredient ;
+      rdfs:range :Food ;
+      rdfs:comment "The food property relates an ingredient to the food that is required."@en ;
+      rdfs:isDefinedBy fdo: ;
+      rdfs:label "food"@en ;
+      vst:term_status "testing" .
 
 
-###  http://fooddata.eu/ontology/method
-fdo:method rdf:type owl:ObjectProperty ;
-           rdfs:range fdo:Method ;
-           rdfs:comment "The method property relates a recipe or stage to the method used to make it."@en ;
-           rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-           rdfs:label "method"@en ;
+###  http://purl.org/fooddata/ingredients
+:ingredients rdf:type owl:ObjectProperty ;
+             rdfs:range :IngredientList ;
+             rdfs:comment "The ingredients property relates a recipe or recipe stage to an ingredient list."@en ;
+             rdfs:isDefinedBy fdo: ;
+             rdfs:label "ingredients"@en ;
+             vst:term_status "testing" .
+
+
+###  http://purl.org/fooddata/main_course
+:main_course rdf:type owl:ObjectProperty ;
+             rdfs:domain :Menu ;
+             rdfs:range :Recipe ;
+             rdfs:comment "The main course property relates a menu to a recipe that may be served as a main course."@en ;
+             rdfs:isDefinedBy fdo: ;
+             rdfs:label "main course"@en ;
+             vst:term_status "testing" .
+
+
+###  http://purl.org/fooddata/method
+:method rdf:type owl:ObjectProperty ;
+        rdfs:range :Method ;
+        rdfs:comment "The method property relates a recipe or stage to the method used to make it."@en ;
+        rdfs:isDefinedBy fdo: ;
+        rdfs:label "method"@en ;
+        vst:term_status "testing" .
+
+
+###  http://purl.org/fooddata/occasion
+:occasion rdf:type owl:ObjectProperty ;
+          rdfs:domain :Recipe ;
+          rdfs:range :Occasion ;
+          rdfs:comment "The occassion property relates a recipe to an occasion it may be appropriate for."@en ;
+          rdfs:isDefinedBy fdo: ;
+          rdfs:label "occassion"@en ;
+          vst:term_status "testing" .
+
+
+###  http://purl.org/fooddata/produces
+:produces rdf:type owl:ObjectProperty ;
+          rdfs:domain :Recipe ;
+          rdfs:range :Food ;
+          rdfs:comment "The produces property relates a recipe to the food it produces."@en ;
+          rdfs:isDefinedBy fdo: ;
+          rdfs:label "produces"@en ;
+          vst:term_status "testing" .
+
+
+###  http://purl.org/fooddata/required_technique
+:required_technique rdf:type owl:ObjectProperty ;
+                    rdfs:range :Technique ;
+                    rdfs:comment "The required technique property indicates that a particular technique is required in order to complete a recipe, method or step."@en ;
+                    rdfs:isDefinedBy fdo: ;
+                    rdfs:label "required technique"@en ;
+                    vst:term_status "testing" .
+
+
+###  http://purl.org/fooddata/serve_as
+:serve_as rdf:type owl:ObjectProperty ;
+          rdfs:domain :Recipe ;
+          rdfs:range :Course ;
+          rdfs:comment "The serve as property relates a recipe to the course in a meal that it may be served as."@en ;
+          rdfs:isDefinedBy fdo: ;
+          rdfs:label "serve as"@en ;
+          vst:term_status "testing" .
+
+
+###  http://purl.org/fooddata/shopping_category
+:shopping_category rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Food ;
+                   rdfs:range :ShoppingCategory ;
+                   rdfs:comment "The shopping category property relates a food to the shopping category where that food is likely to be found when shopping for it."@en ;
+                   rdfs:isDefinedBy fdo: ;
+                   rdfs:label "shopping category"@en ;
+                   vst:term_status "testing" .
+
+
+###  http://purl.org/fooddata/side_dish
+:side_dish rdf:type owl:ObjectProperty ;
+           rdfs:domain :Menu ;
+           rdfs:range :Recipe ;
+           rdfs:comment "The side dish property relates a menu to a recipe that may be served as a side dish."@en ;
+           rdfs:isDefinedBy fdo: ;
+           rdfs:label "side dish"@en ;
            vst:term_status "testing" .
 
 
-###  http://fooddata.eu/ontology/occasion
-fdo:occasion rdf:type owl:ObjectProperty ;
-             rdfs:domain fdo:Recipe ;
-             rdfs:range fdo:Occasion ;
-             rdfs:comment "The occassion property relates a recipe to an occasion it may be appropriate for."@en ;
-             rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-             rdfs:label "occassion"@en ;
-             vst:term_status "testing" .
+###  http://purl.org/fooddata/stages
+:stages rdf:type owl:ObjectProperty ;
+        rdfs:domain :Recipe ;
+        rdfs:range :StageSequence ;
+        rdfs:comment "The stages property relates a recipe to the sequence of stages it contains."@en ;
+        rdfs:isDefinedBy fdo: ;
+        rdfs:label "stages"@en ;
+        vst:term_status "testing" .
 
 
-###  http://fooddata.eu/ontology/produces
-fdo:produces rdf:type owl:ObjectProperty ;
-             rdfs:domain fdo:Recipe ;
-             rdfs:range fdo:Food ;
-             rdfs:comment "The produces property relates a recipe to the food it produces."@en ;
-             rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-             rdfs:label "produces"@en ;
-             vst:term_status "testing" .
-
-
-###  http://fooddata.eu/ontology/required_technique
-fdo:required_technique rdf:type owl:ObjectProperty ;
-                       rdfs:range fdo:Technique ;
-                       rdfs:comment "The required technique property indicates that a particular technique is required in order to complete a recipe, method or step."@en ;
-                       rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-                       rdfs:label "required technique"@en ;
-                       vst:term_status "testing" .
-
-
-###  http://fooddata.eu/ontology/serve_as
-fdo:serve_as rdf:type owl:ObjectProperty ;
-             rdfs:domain fdo:Recipe ;
-             rdfs:range fdo:Course ;
-             rdfs:comment "The serve as property relates a recipe to the course in a meal that it may be served as."@en ;
-             rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-             rdfs:label "serve as"@en ;
-             vst:term_status "testing" .
-
-
-###  http://fooddata.eu/ontology/shopping_category
-fdo:shopping_category rdf:type owl:ObjectProperty ;
-                      rdfs:domain fdo:Food ;
-                      rdfs:range fdo:ShoppingCategory ;
-                      rdfs:comment "The shopping category property relates a food to the shopping category where that food is likely to be found when shopping for it."@en ;
-                      rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-                      rdfs:label "shopping category"@en ;
-                      vst:term_status "testing" .
-
-
-###  http://fooddata.eu/ontology/side_dish
-fdo:side_dish rdf:type owl:ObjectProperty ;
-              rdfs:domain fdo:Menu ;
-              rdfs:range fdo:Recipe ;
-              rdfs:comment "The side dish property relates a menu to a recipe that may be served as a side dish."@en ;
-              rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-              rdfs:label "side dish"@en ;
-              vst:term_status "testing" .
-
-
-###  http://fooddata.eu/ontology/stages
-fdo:stages rdf:type owl:ObjectProperty ;
-           rdfs:domain fdo:Recipe ;
-           rdfs:range fdo:StageSequence ;
-           rdfs:comment "The stages property relates a recipe to the sequence of stages it contains."@en ;
-           rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-           rdfs:label "stages"@en ;
-           vst:term_status "testing" .
-
-
-###  http://fooddata.eu/ontology/starter
-fdo:starter rdf:type owl:ObjectProperty ;
-            rdfs:domain fdo:Menu ;
-            rdfs:range fdo:Recipe ;
-            rdfs:comment "The starter property relates a menu to a recipe that may be served as a starter."@en ;
-            rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-            rdfs:label "starter"@en ;
-            vst:term_status "testing" .
+###  http://purl.org/fooddata/starter
+:starter rdf:type owl:ObjectProperty ;
+         rdfs:domain :Menu ;
+         rdfs:range :Recipe ;
+         rdfs:comment "The starter property relates a menu to a recipe that may be served as a starter."@en ;
+         rdfs:isDefinedBy fdo: ;
+         rdfs:label "starter"@en ;
+         vst:term_status "testing" .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  http://fooddata.eu/ontology/imperial_quantity
-fdo:imperial_quantity rdf:type owl:DatatypeProperty ;
-                      rdfs:domain fdo:Ingredient ;
-                      rdfs:range xsd:string ;
-                      rdfs:comment "A metric quantity provides a value and imperial unit in a human readable string for use in measuring out an ingredient."@en ;
-                      rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-                      rdfs:label "imperial quantity"@en ;
-                      vst:term_status "testing" .
+###  http://purl.org/fooddata/imperial_quantity
+:imperial_quantity rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Ingredient ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "A metric quantity provides a value and imperial unit in a human readable string for use in measuring out an ingredient."@en ;
+                   rdfs:isDefinedBy fdo: ;
+                   rdfs:label "imperial quantity"@en ;
+                   vst:term_status "testing" .
 
 
-###  http://fooddata.eu/ontology/instruction
-fdo:instruction rdf:type owl:DatatypeProperty ;
-                rdfs:domain fdo:Step ;
-                rdfs:range xsd:string ;
-                rdfs:comment "An instruction provides the human-readable text associated with a step in the method for a recipe."@en ;
-                rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-                rdfs:label "instruction"@en ;
-                vst:term_status "testing" .
-
-
-###  http://fooddata.eu/ontology/metric_quantity
-fdo:metric_quantity rdf:type owl:DatatypeProperty ;
-                    rdfs:domain fdo:Ingredient ;
-                    rdfs:range xsd:string ;
-                    rdfs:comment "A metric quantity provides a value and metric unit in a human readable string for use in measuring out an ingredient."@en ;
-                    rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-                    rdfs:label "metric quantity"@en ;
-                    vst:term_status "testing" .
-
-
-###  http://fooddata.eu/ontology/quantity
-fdo:quantity rdf:type owl:DatatypeProperty ;
-             rdfs:domain fdo:Ingredient ;
-             rdfs:range xsd:nonNegativeInteger ;
-             rdfs:comment "A quantity provides a non-negative integer quantity that can be used as a measure of the food stuff for the ingredient."@en ;
-             rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-             rdfs:label "quantity"@en ;
+###  http://purl.org/fooddata/instruction
+:instruction rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Step ;
+             rdfs:range xsd:string ;
+             rdfs:comment "An instruction provides the human-readable text associated with a step in the method for a recipe."@en ;
+             rdfs:isDefinedBy fdo: ;
+             rdfs:label "instruction"@en ;
              vst:term_status "testing" .
 
 
-###  http://fooddata.eu/ontology/recipeCuisine
-fdo:recipeCuisine rdf:type owl:DatatypeProperty ;
-                  rdfs:subPropertyOf owl:topDataProperty ;
-                  rdfs:domain fdo:Cuisine .
+###  http://purl.org/fooddata/metric_quantity
+:metric_quantity rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Ingredient ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "A metric quantity provides a value and metric unit in a human readable string for use in measuring out an ingredient."@en ;
+                 rdfs:isDefinedBy fdo: ;
+                 rdfs:label "metric quantity"@en ;
+                 vst:term_status "testing" .
 
 
-###  http://fooddata.eu/ontology/serves
-fdo:serves rdf:type owl:DatatypeProperty ;
-           rdfs:domain fdo:Recipe ;
-           rdfs:range xsd:string ;
-           rdfs:comment "The server property indicates what the recipe is intended to serve, this is often a human readable integer range such as '6-8'."@en ;
-           rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-           rdfs:label "serves"@en ;
-           vst:term_status "testing" .
+###  http://purl.org/fooddata/quantity
+:quantity rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Ingredient ;
+          rdfs:range xsd:nonNegativeInteger ;
+          rdfs:comment "A quantity provides a non-negative integer quantity that can be used as a measure of the food stuff for the ingredient."@en ;
+          rdfs:isDefinedBy fdo: ;
+          rdfs:label "quantity"@en ;
+          vst:term_status "testing" .
+
+
+###  http://purl.org/fooddata/recipeCuisine
+:recipeCuisine rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :Cuisine .
+
+
+###  http://purl.org/fooddata/serves
+:serves rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Recipe ;
+        rdfs:range xsd:string ;
+        rdfs:comment "The server property indicates what the recipe is intended to serve, this is often a human readable integer range such as '6-8'."@en ;
+        rdfs:isDefinedBy fdo: ;
+        rdfs:label "serves"@en ;
+        vst:term_status "testing" .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://fooddata.eu/ontology/Collection
-fdo:Collection rdf:type owl:Class ;
-               rdfs:subClassOf dcmit:Collection ;
-               rdfs:comment "A Collection is a group of recipes that are brought together because they have something in common. Some collections may result from automated queries such as all recipes that share a particular ingredient, other collections may be the result of editorial selection."@en ,
-                            "Een collectie is een groep recepten die bij elkaar zijn gebracht omdat ze iets gemeen hebben. Sommige verzamelingen kunnen het resultaat zijn van geautomatiseerde zoekopdrachten, zoals alle recepten die een bepaald ingrediënt delen, andere verzamelingen kunnen het resultaat zijn van redactionele selectie."@nl ;
-               rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-               rdfs:label "Collectie"@nl ,
-                          "Collection"@en ;
-               vst:term_status "testing"@en ;
-               skos:closeMatch vso:Collection ;
-               skos:exactMatch bbcfo:Collection .
+###  http://purl.org/dc/dcmitype/Collection
+dcmit:Collection rdf:type owl:Class ;
+                 rdfs:label "dcmi:Collection"@en .
 
 
-###  http://fooddata.eu/ontology/Course
-fdo:Course rdf:type owl:Class ;
-           rdfs:comment "A Course is the sequence of a dish within a meal. For example a basic dinner party may consists of Starter, Main and Dessert courses."@en ;
-           rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-           rdfs:label "Course"@en ;
-           vst:term_status "testing" .
+###  http://purl.org/fooddata/Collection
+:Collection rdf:type owl:Class ;
+            rdfs:subClassOf dcmit:Collection ;
+            rdfs:comment "A Collection is a group of recipes that are brought together because they have something in common. Some collections may result from automated queries such as all recipes that share a particular ingredient, other collections may be the result of editorial selection."@en ,
+                         "Een collectie is een groep recepten die bij elkaar zijn gebracht omdat ze iets gemeen hebben. Sommige verzamelingen kunnen het resultaat zijn van geautomatiseerde zoekopdrachten, zoals alle recepten die een bepaald ingrediënt delen, andere verzamelingen kunnen het resultaat zijn van redactionele selectie."@nl ;
+            rdfs:isDefinedBy fdo: ;
+            rdfs:label "Collectie"@nl ,
+                       "Collection"@en ;
+            vst:term_status "testing"@en ;
+            skos:closeMatch vso:Collection ;
+            skos:exactMatch bbcfo:Collection .
 
 
-###  http://fooddata.eu/ontology/Cuisine
-fdo:Cuisine rdf:type owl:Class ;
-            rdfs:comment "A Cuisine is a particular style of food, often based on a region. These classifications are often highly subjective."@en ;
-            rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-            rdfs:label "Cuisine"@en ;
-            vst:term_status "testing" .
+###  http://purl.org/fooddata/Course
+:Course rdf:type owl:Class ;
+        rdfs:comment "A Course is the sequence of a dish within a meal. For example a basic dinner party may consists of Starter, Main and Dessert courses."@en ;
+        rdfs:isDefinedBy fdo: ;
+        rdfs:label "Course"@en ;
+        vst:term_status "testing" .
 
 
-###  http://fooddata.eu/ontology/Diet
-fdo:Diet rdf:type owl:Class ;
-         rdfs:subClassOf vso:RestrictedDiet ;
-         rdfs:comment "A Diet is a way of selecting food that achieves a particular effect, such as eating in way that is pregnancy-friendly or avoiding foods that contain shellfish."@en ,
-                      "Een dieet is een manier om voedsel te selecteren dat een bepaald effect bereikt, zoals eten op een manier die zwangerschapsvriendelijk is of het vermijden van voedsel dat schaaldieren bevat."@nl ;
-         rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-         rdfs:label "Dieet"@nl ,
-                    "Diet"@en ;
-         vst:term_status "testing" ;
-         skos:exactMatch bbcfo:Diet .
-
-
-###  http://fooddata.eu/ontology/Food
-fdo:Food rdf:type owl:Class ;
-         rdfs:comment "A Food is something that can be eaten. It may be a basic food such as salt or it may be the more complex result of another recipe, for example chicken stock. A recipe uses foods as part of ingredients and also produces foods to be eaten."@en ,
-                      "Een voedingsmiddel is iets dat kan worden gegeten. Het kan een basisvoedsel zijn, zoals zout, of het kan het complexere resultaat zijn van een ander recept, bijvoorbeeld kippenbouillon. Een recept gebruikt voedsel als onderdeel van ingrediënten en produceert ook voedsel om te eten."@nl ;
-         rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-         rdfs:label "Food"@en ,
-                    "Voedingsmiddel"@nl ;
-         vst:term_status "testing" ;
-         skos:exactMatch bbcfo:Food .
-
-
-###  http://fooddata.eu/ontology/Ingredient
-fdo:Ingredient rdf:type owl:Class ;
-               rdfs:comment "An Ingredient is the combination of a quantity and a food, giving the amount of something that should be used in the recipe."@en ,
-                            "Een ingrediënt is de combinatie van een hoeveelheid en een voedingsmiddel, waarmee de hoeveelheid wordt aangegeven van iets dat in het recept moet worden gebruikt."@nl ;
-               rdfs:label "Ingredient"@en ,
-                          "Ingrediënt"@nl ;
-               vst:term_status "testing" ;
-               skos:closeMatch vso:recipeIngredient ;
-               skos:exactMatch bbcfo:Ingredient .
-
-
-###  http://fooddata.eu/ontology/IngredientList
-fdo:IngredientList rdf:type owl:Class ;
-                   rdfs:subClassOf rdf:Seq ;
-                   rdfs:comment "An Ingredient List is a sequence (rdf:Seq) of ingredients in the order they should be listed in the recipe."@en ,
-                                "Een ingrediëntenlijst is een reeks (rdf: Seq) ingrediënten in de volgorde waarin ze in het recept moeten worden vermeld."@nl ;
-                   rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-                   rdfs:label "IngredientList"@en ,
-                              "Ingrediëntenlijst"@nl ;
-                   vst:term_status "testing" ;
-                   skos:exactMatch bbcfo:IngredientList .
-
-
-###  http://fooddata.eu/ontology/Menu
-fdo:Menu rdf:type owl:Class ;
-         rdfs:subClassOf fdo:Collection ;
-         rdfs:comment "A Menu is a collection of recipes, usually one or more per course, that have been selected to go well together. A Menu may also be related to a particular cuisine or occasion."@en ;
-         rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-         rdfs:label "Menu"@en ;
+###  http://purl.org/fooddata/Cuisine
+:Cuisine rdf:type owl:Class ;
+         rdfs:comment "A Cuisine is a particular style of food, often based on a region. These classifications are often highly subjective."@en ;
+         rdfs:isDefinedBy fdo: ;
+         rdfs:label "Cuisine"@en ;
          vst:term_status "testing" .
 
 
-###  http://fooddata.eu/ontology/Method
-fdo:Method rdf:type owl:Class ;
-           rdfs:subClassOf rdf:Seq ;
-           rdfs:comment "A Method is the way in which ingredients are combined, using particular techniques, in order to produce a food. A method is part of a recipe and is also an rdf:Seq."@en ,
-                        "Een methode is de manier waarop ingrediënten worden gecombineerd, met behulp van bepaalde technieken, om een voedsel te produceren. Een methode maakt deel uit van een recept en is ook een rdf: Seq."@nl ;
-           rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-           rdfs:label "Method"@en ,
-                      "Methode"@nl ;
-           vst:term_status "testing" ;
-           skos:closeMatch vso:cookingMethod ;
-           skos:exactMatch bbcfo:Method .
+###  http://purl.org/fooddata/Diet
+:Diet rdf:type owl:Class ;
+      rdfs:subClassOf vso:RestrictedDiet ;
+      rdfs:comment "A Diet is a way of selecting food that achieves a particular effect, such as eating in way that is pregnancy-friendly or avoiding foods that contain shellfish."@en ,
+                   "Een dieet is een manier om voedsel te selecteren dat een bepaald effect bereikt, zoals eten op een manier die zwangerschapsvriendelijk is of het vermijden van voedsel dat schaaldieren bevat."@nl ;
+      rdfs:isDefinedBy fdo: ;
+      rdfs:label "Dieet"@nl ,
+                 "Diet"@en ;
+      vst:term_status "testing" ;
+      skos:exactMatch bbcfo:Diet .
 
 
-###  http://fooddata.eu/ontology/Occasion
-fdo:Occasion rdf:type owl:Class ;
-             rdfs:comment "An Occasion is a recognised event or type of event that a particular food may be suitable for. An example of a particular occassion might be Chinese New Year, whereas a more general occassion might a birthday."@en ,
-                          "Een gelegenheid is een erkende gebeurtenis of een soort evenement waarvoor een bepaald voedsel geschikt kan zijn. Een voorbeeld van een bepaalde gelegenheid kan Chinees Nieuwjaar zijn, terwijl een meer algemene gelegenheid een verjaardag kan zijn."@nl ;
-             rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-             rdfs:label "Gelegenheid"@nl ,
-                        "Occasion"@en ;
-             vst:term_status "testing" ;
-             skos:exactMatch bbcfo:Occasion .
+###  http://purl.org/fooddata/Food
+:Food rdf:type owl:Class ;
+      rdfs:comment "A Food is something that can be eaten. It may be a basic food such as salt or it may be the more complex result of another recipe, for example chicken stock. A recipe uses foods as part of ingredients and also produces foods to be eaten."@en ,
+                   "Een voedingsmiddel is iets dat kan worden gegeten. Het kan een basisvoedsel zijn, zoals zout, of het kan het complexere resultaat zijn van een ander recept, bijvoorbeeld kippenbouillon. Een recept gebruikt voedsel als onderdeel van ingrediënten en produceert ook voedsel om te eten."@nl ;
+      rdfs:isDefinedBy fdo: ;
+      rdfs:label "Food"@en ,
+                 "Voedingsmiddel"@nl ;
+      vst:term_status "testing" ;
+      skos:exactMatch bbcfo:Food .
 
 
-###  http://fooddata.eu/ontology/Recipe
-fdo:Recipe rdf:type owl:Class ;
-           rdfs:comment "A Recipe is a combination of ingredients and a method, created by a chef, that produces a food."@en ,
-                        "Een recept is een combinatie van ingredienten en een methode, als creatie van een chefkok, waarmee een voedsel kan worden gemaakt."@nl ;
-           rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-           rdfs:label "Recept"@nl ,
-                      "Recipe"@en ;
-           vst:term_status "testing"@en ;
-           skos:closeMatch vso:Recipe ;
-           skos:exactMatch bbcfo:Recipe .
+###  http://purl.org/fooddata/Ingredient
+:Ingredient rdf:type owl:Class ;
+            rdfs:comment "An Ingredient is the combination of a quantity and a food, giving the amount of something that should be used in the recipe."@en ,
+                         "Een ingrediënt is de combinatie van een hoeveelheid en een voedingsmiddel, waarmee de hoeveelheid wordt aangegeven van iets dat in het recept moet worden gebruikt."@nl ;
+            rdfs:label "Ingredient"@en ,
+                       "Ingrediënt"@nl ;
+            vst:term_status "testing" ;
+            skos:closeMatch vso:recipeIngredient ;
+            skos:exactMatch bbcfo:Ingredient .
+
+
+###  http://purl.org/fooddata/IngredientList
+:IngredientList rdf:type owl:Class ;
+                rdfs:subClassOf rdf:Seq ;
+                rdfs:comment "An Ingredient List is a sequence (rdf:Seq) of ingredients in the order they should be listed in the recipe."@en ,
+                             "Een ingrediëntenlijst is een reeks (rdf: Seq) ingrediënten in de volgorde waarin ze in het recept moeten worden vermeld."@nl ;
+                rdfs:isDefinedBy fdo: ;
+                rdfs:label "IngredientList"@en ,
+                           "Ingrediëntenlijst"@nl ;
+                vst:term_status "testing" ;
+                skos:exactMatch bbcfo:IngredientList .
+
+
+###  http://purl.org/fooddata/Menu
+:Menu rdf:type owl:Class ;
+      rdfs:subClassOf :Collection ;
+      rdfs:comment "A Menu is a collection of recipes, usually one or more per course, that have been selected to go well together. A Menu may also be related to a particular cuisine or occasion."@en ;
+      rdfs:isDefinedBy fdo: ;
+      rdfs:label "Menu"@en ;
+      vst:term_status "testing" .
+
+
+###  http://purl.org/fooddata/Method
+:Method rdf:type owl:Class ;
+        rdfs:subClassOf rdf:Seq ;
+        rdfs:comment "A Method is the way in which ingredients are combined, using particular techniques, in order to produce a food. A method is part of a recipe and is also an rdf:Seq."@en ,
+                     "Een methode is de manier waarop ingrediënten worden gecombineerd, met behulp van bepaalde technieken, om een voedsel te produceren. Een methode maakt deel uit van een recept en is ook een rdf: Seq."@nl ;
+        rdfs:isDefinedBy fdo: ;
+        rdfs:label "Method"@en ,
+                   "Methode"@nl ;
+        vst:term_status "testing" ;
+        skos:closeMatch vso:cookingMethod ;
+        skos:exactMatch bbcfo:Method .
+
+
+###  http://purl.org/fooddata/Occasion
+:Occasion rdf:type owl:Class ;
+          rdfs:comment "An Occasion is a recognised event or type of event that a particular food may be suitable for. An example of a particular occassion might be Chinese New Year, whereas a more general occassion might a birthday."@en ,
+                       "Een gelegenheid is een erkende gebeurtenis of een soort evenement waarvoor een bepaald voedsel geschikt kan zijn. Een voorbeeld van een bepaalde gelegenheid kan Chinees Nieuwjaar zijn, terwijl een meer algemene gelegenheid een verjaardag kan zijn."@nl ;
+          rdfs:isDefinedBy fdo: ;
+          rdfs:label "Gelegenheid"@nl ,
+                     "Occasion"@en ;
+          vst:term_status "testing" ;
+          skos:exactMatch bbcfo:Occasion .
+
+
+###  http://purl.org/fooddata/Recipe
+:Recipe rdf:type owl:Class ;
+        rdfs:comment "A Recipe is a combination of ingredients and a method, created by a chef, that produces a food."@en ,
+                     "Een recept is een combinatie van ingredienten en een methode, als creatie van een chefkok, waarmee een voedsel kan worden gemaakt."@nl ;
+        rdfs:isDefinedBy fdo: ;
+        rdfs:label "Recept"@nl ,
+                   "Recipe"@en ;
+        vst:term_status "testing"@en ;
+        skos:closeMatch vso:Recipe ;
+        skos:exactMatch bbcfo:Recipe .
 
 [ rdf:type owl:Axiom ;
-   owl:annotatedSource fdo:Recipe ;
+   owl:annotatedSource :Recipe ;
    owl:annotatedProperty skos:closeMatch ;
    owl:annotatedTarget vso:Recipe ;
    rdfs:comment "Gebruikt overeenkomstige begrippen uit schema maar komt niet volledig overeen met naamgeving en indeling."@nl
  ] .
 
 [ rdf:type owl:Axiom ;
-   owl:annotatedSource fdo:Recipe ;
+   owl:annotatedSource :Recipe ;
    owl:annotatedProperty skos:exactMatch ;
    owl:annotatedTarget bbcfo:Recipe ;
    rdfs:comment "Overgenomen om later uit te breiden"@nl
  ] .
 
 
-###  http://fooddata.eu/ontology/Season
-fdo:Season rdf:type owl:Class ;
-           rdfs:comment "A Season is a period of time that recurs annually during which a food is typically available or at its best."@en ;
-           rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-           rdfs:label "Season"@en ;
+###  http://purl.org/fooddata/Season
+:Season rdf:type owl:Class ;
+        rdfs:comment "A Season is a period of time that recurs annually during which a food is typically available or at its best."@en ;
+        rdfs:isDefinedBy fdo: ;
+        rdfs:label "Season"@en ;
+        vst:term_status "testing" .
+
+
+###  http://purl.org/fooddata/ShoppingCategory
+:ShoppingCategory rdf:type owl:Class ;
+                  rdfs:comment "A Shopping Category is a classification given to a food to indicate where it may be found when shopping."@en ;
+                  rdfs:isDefinedBy fdo: ;
+                  rdfs:label "ShoppingCategory"@en ;
+                  vst:term_status "testing" .
+
+
+###  http://purl.org/fooddata/Stage
+:Stage rdf:type owl:Class ;
+       rdfs:comment "A Stage is a part of a recipe that may have its own ingredient list and/or method. It allows the different parts of a multi-part recipe to be modelled seperately, yet as part of the same recipe."@en ,
+                    "Een fase is een onderdeel van een recept dat zijn eigen ingrediëntenlijst en / of methode kan hebben. Hiermee kunnen de verschillende delen van een meerdelig recept afzonderlijk worden gemodelleerd, maar als onderdeel van hetzelfde recept."@nl ;
+       rdfs:isDefinedBy fdo: ;
+       rdfs:label "Fase"@nl ,
+                  "Stage"@en ;
+       vst:term_status "testing" ;
+       skos:exactMatch bbcfo:Stage .
+
+
+###  http://purl.org/fooddata/StageSequence
+:StageSequence rdf:type owl:Class ;
+               rdfs:subClassOf rdf:Seq ;
+               rdfs:comment "Waar een recept een aantal fasen heeft, bijvoorbeeld waar een recept 'voor de saus' vermeldt, biedt een fasenvolgorde een manier om de fasen (rdf: Seq) in de gewenste volgorde te zetten."@nl ,
+                            "Where a recipe has a number of stage, for example where a recipe states 'for the sauce' a stage sequence provides a way to sequence the stages (rdf:Seq) into the desired order."@en ;
+               rdfs:isDefinedBy fdo: ;
+               rdfs:label "Fasenvolgorde"@nl ,
+                          "StageSequence"@en ;
+               vst:term_status "testing" ;
+               skos:exactMatch bbcfo:StageSequence .
+
+
+###  http://purl.org/fooddata/Step
+:Step rdf:type owl:Class ;
+      rdfs:comment "A Step is the lowest level of instruction used in a recipe. A sequence of steps form a method."@en ,
+                   "Een stap is het laagste instructieniveau dat in een recept wordt gebruikt. Een opeenvolging van stappen vormt een methode."@nl ;
+      rdfs:isDefinedBy fdo: ;
+      rdfs:label "Stap"@nl ,
+                 "Step"@en ;
+      vst:term_status "testing" ;
+      skos:closeMatch vso:recipeInstructions ;
+      skos:exactMatch bbcfo:Step .
+
+
+###  http://purl.org/fooddata/Technique
+:Technique rdf:type owl:Class ;
+           rdfs:comment "A Technique is a way of working with an ingredient to produce a desired effect, for example, whipping cream."@en ;
+           rdfs:isDefinedBy fdo: ;
+           rdfs:label "Technique"@en ;
            vst:term_status "testing" .
-
-
-###  http://fooddata.eu/ontology/ShoppingCategory
-fdo:ShoppingCategory rdf:type owl:Class ;
-                     rdfs:comment "A Shopping Category is a classification given to a food to indicate where it may be found when shopping."@en ;
-                     rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-                     rdfs:label "ShoppingCategory"@en ;
-                     vst:term_status "testing" .
-
-
-###  http://fooddata.eu/ontology/Stage
-fdo:Stage rdf:type owl:Class ;
-          rdfs:comment "A Stage is a part of a recipe that may have its own ingredient list and/or method. It allows the different parts of a multi-part recipe to be modelled seperately, yet as part of the same recipe."@en ,
-                       "Een fase is een onderdeel van een recept dat zijn eigen ingrediëntenlijst en / of methode kan hebben. Hiermee kunnen de verschillende delen van een meerdelig recept afzonderlijk worden gemodelleerd, maar als onderdeel van hetzelfde recept."@nl ;
-          rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-          rdfs:label "Fase"@nl ,
-                     "Stage"@en ;
-          vst:term_status "testing" ;
-          skos:exactMatch bbcfo:Stage .
-
-
-###  http://fooddata.eu/ontology/StageSequence
-fdo:StageSequence rdf:type owl:Class ;
-                  rdfs:subClassOf rdf:Seq ;
-                  rdfs:comment "Waar een recept een aantal fasen heeft, bijvoorbeeld waar een recept 'voor de saus' vermeldt, biedt een fasenvolgorde een manier om de fasen (rdf: Seq) in de gewenste volgorde te zetten."@nl ,
-                               "Where a recipe has a number of stage, for example where a recipe states 'for the sauce' a stage sequence provides a way to sequence the stages (rdf:Seq) into the desired order."@en ;
-                  rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-                  rdfs:label "Fasenvolgorde"@nl ,
-                             "StageSequence"@en ;
-                  vst:term_status "testing" ;
-                  skos:exactMatch bbcfo:StageSequence .
-
-
-###  http://fooddata.eu/ontology/Step
-fdo:Step rdf:type owl:Class ;
-         rdfs:comment "A Step is the lowest level of instruction used in a recipe. A sequence of steps form a method."@en ,
-                      "Een stap is het laagste instructieniveau dat in een recept wordt gebruikt. Een opeenvolging van stappen vormt een methode."@nl ;
-         rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-         rdfs:label "Stap"@nl ,
-                    "Step"@en ;
-         vst:term_status "testing" ;
-         skos:closeMatch vso:recipeInstructions ;
-         skos:exactMatch bbcfo:Step .
-
-
-###  http://fooddata.eu/ontology/Technique
-fdo:Technique rdf:type owl:Class ;
-              rdfs:comment "A Technique is a way of working with an ingredient to produce a desired effect, for example, whipping cream."@en ;
-              rdfs:isDefinedBy <http://fooddata.eu/ontology/> ;
-              rdfs:label "Technique"@en ;
-              vst:term_status "testing" .
-
-
-###  http://purl.org/dc/dcmitype/Collection
-dcmit:Collection rdf:type owl:Class ;
-                 rdfs:label "dcmi:Collection"@en .
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq
